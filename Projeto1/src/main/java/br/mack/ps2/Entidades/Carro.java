@@ -17,54 +17,40 @@ public class Carro {
     }
     public Carro(long id, String Modelo, String Marca, int Ano, String Categoria){
         this.setId(id);
-        this.setModelo(modelo);
-        this.setMarca(marca);
-        this.setAno(ano);
-        this.setCategoria(categoria);
+        this.setModelo(Modelo);
+        this.setMarca(Marca);
+        this.setAno(Ano);
+        this.setCategoria(Categoria);
     }
 
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public void setId(long id) { this.id = id; }
 
-    public String getModelo() {
-        return modelo;
-    }
+    public String getModelo() { return Modelo; }
 
-    public void setModelo(String modelo) {
-        this.descricao = modelo;
-    }
+    public void setModelo(String modelo) { Modelo = modelo; }
 
-    public String getMarca() {
-        return marca;
-    }
+    public String getMarca() { return Marca; }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
+    public void setMarca(String marca) { Marca = marca; }
 
-    public int getAno() {
-        return ano;
-    }
+    public int getAno() { return Ano; }
 
-    public void setAno(int ano) { this.ano = ano; }
+    public void setAno(int ano) { Ano = ano; }
 
-    public String setCategoria(String categoria) { this.categoria = categoria; }
+    public String getCategoria() { return Categoria; }
 
-    public void getCatregoria() { return categoria; }
+    public void setCategoria(String categoria) { Categoria = categoria; }
 
     @Override
     public java.lang.String toString() {
         return "Carro{" +
-                "id=" + id +
-                ", Modelo='" + Modelo + '\'' +
-                ", Marca='" + Marca + '\'' +
-                ", Ano=" + Ano +
-                ", Categoria='" + Categoria + '\'' +
+                "id =" + getId() +
+                ", Modelo ='" + getModelo() + '\'' +
+                ", Marca ='" + getMarca() + '\'' +
+                ", Ano =" + getAno() +
+                ", Categoria ='" + getCategoria() + '\'' +
                 '}';
     }
 }

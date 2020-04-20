@@ -1,6 +1,6 @@
 package br.mack.ps2.Persistencias;
 
-import br.mack.ps2.Entidades.Produto;
+import br.mack.ps2.Entidades.Carro;
 
 import java.util.List;
 

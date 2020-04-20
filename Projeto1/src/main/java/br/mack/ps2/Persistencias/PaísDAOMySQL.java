@@ -1,6 +1,5 @@
 package br.mack.ps2.Persistencias;
-
-import br.mack.ps2.Entidades.Carro;
+import br.mack.ps2.Entidades.País;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,25 +8,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarroDAOMySQL implements CarroDAO {
-    private String createSQL = "INSERT INTO carro (id, modelo, marca, ano, categoria) VALUES (?,?,?,?,?)";
-    private String readSQL = "SELECT * FROM carro";
-    private String updateSQL = "UPDATE carro SET id = ?, modelo = ?, marca = ?, ano = ?, categoria = ?";
-    private String deleteSQL = "DELETE FROM carro WHERE id=?";
+public class PaísDAOMySQL implements PaísDAO{
+    private String createSQL = "INSERT INTO pais (id, nome, continente, populacao) VALUES (?,?,?,?)";
+    private String readSQL = "SELECT * FROM pais";
+    private String updateSQL = "UPDATE pais SET id = ?, nome = ?, continente = ?, populacao = ?";
+    private String deleteSQL = "DELETE FROM pais WHERE id=?";
 
     private final MySQLConnection mysql = new MySQLConnection();
 
 
     @Override
-    public boolean create(Carro carro) {
+    public boolean create(País país) {
         Connection connection = mysql.getConnection();
         try {
             PreparedStatement stm = connection.prepareStatement(createSQL);
-            stm.setLong(1, carro.getId());
-            stm.setString(2, carro.getModelo());
-            stm.setString(3, carro.getMarca());
-            stm.setInt(4, carro.getAno());
-            stm.setString(5, carro.getCategoria());
+            stm.setLong(1, país.getId());
+            stm.setString(2, país.getNome());
+            stm.setString(3, país.getContinente());
+            stm.setInt(4, país.getPopulacao());
             int registro = stm.executeUpdate();
             return (registro > 0);
         } catch (SQLException e) {
@@ -44,25 +42,24 @@ public class CarroDAOMySQL implements CarroDAO {
     }
 
     @Override
-    public List<Carro> read() {
+    public List<País> read() {
         Connection conexao = mysql.getConnection();
-        List<Carro> carros = new ArrayList();
+        List<País> países = new ArrayList();
 
         try {
             PreparedStatement stm = conexao.prepareStatement(readSQL);
             ResultSet rs = stm.executeQuery();
 
             while (rs.next()) {
-                Carro carro = new Carro();
-                carro.setId(rs.getLong("id"));
-                carro.setModelo(rs.getString("Modelo"));
-                carro.setMarca(rs.getString("Marca"));
-                carro.setAno(rs.getInt("Ano"));
-                carro.setCategoria(rs.getString("Categoria"));
-                carros.add(carro);
+                País país = new País();
+                país.setId(rs.getLong("id"));
+                país.setNome(rs.getString("Nome"));
+                país.setContinente(rs.getString("Continente"));
+                país.setPopulacao(rs.getInt("População"));
+                países.add(país);
             }
 
-            return carros;
+            return países;
 
         } catch (final SQLException ex) {
             System.out.println("Falha de conexão com a base de dados!");
@@ -76,21 +73,19 @@ public class CarroDAOMySQL implements CarroDAO {
                 ex.printStackTrace();
             }
         }
-        return carros;
+        return países;
     }
 
-
     @Override
-    public boolean update(Carro carro) {
+    public boolean update(País país) {
         Connection conexao = mysql.getConnection();
         try {
             PreparedStatement stm = conexao.prepareStatement(updateSQL);
 
-            stm.setLong(1, carro.getId());
-            stm.setString(2, carro.getModelo());
-            stm.setString(3, carro.getMarca());
-            stm.setInt(4, carro.getAno());
-            stm.setString(5, carro.getCategoria());
+            stm.setLong(1, país.getId());
+            stm.setString(2, país.getNome());
+            stm.setString(3, país.getContinente());
+            stm.setInt(4, país.getPopulacao());
 
             int registros = stm.executeUpdate();
             return registros > 0 ? true : false;
@@ -111,12 +106,13 @@ public class CarroDAOMySQL implements CarroDAO {
     }
 
     @Override
-    public boolean delete(Carro carro) {
+    public boolean delete(País país) {
+
         Connection conexao = mysql.getConnection();
         try {
             PreparedStatement stm = conexao.prepareStatement(deleteSQL);
 
-            stm.setLong(1, carro.getId());
+            stm.setLong(1, país.getId());
 
             int registros = stm.executeUpdate();
 
@@ -137,4 +133,3 @@ public class CarroDAOMySQL implements CarroDAO {
         return false;
     }
 }
-
