@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce34f1ea-538f-4632-85e1-7189c3ef2f37" name="Default Changelist" comment="" />
+    <list default="true" id="ce34f1ea-538f-4632-85e1-7189c3ef2f37" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/mack/ps2/Persistencias/CarroDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/mack/ps2/Persistencias/CarroDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +20,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1aog9tRlhnrStojtuaK5k0hxZp3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -23,6 +32,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -43,10 +54,11 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="450" y="65" key="#com.intellij.ide.util.MemberChooser" timestamp="1587411428769">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state x="635" y="93" key="#com.intellij.ide.util.MemberChooser" timestamp="1587414949432">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="450" y="65" key="#com.intellij.ide.util.MemberChooser/0.0.1360.728@0.0.1360.728" timestamp="1587411428769" />
+    <state x="635" y="93" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587414949432" />
     <state x="384" y="47" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1587408006704">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
@@ -59,5 +71,24 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="476" y="244" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1360.728@0.0.1360.728" timestamp="1587409850972" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/mack/ps2/Persistencias/CarroDAOMySQL.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/br/mack/ps2/Persistencias/CarroDAOMySQL.java</url>
+          <line>113</line>
+          <properties class="br.mack.ps2.Persistencias.CarroDAOMySQL" method="delete">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
