@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProdutoDAOMySQL implements ProdutoDAO {
-    private String createSQL = "INSERT INTO produto (id, descricao, marca, preco) VALUES (?,?,?,?)";
+    private String createSQL = "INSERT INTO produto (Descrição, Marca, Preço) VALUES (?,?,?)";
     private String readSQL = "SELECT * FROM produto";
-    private String updateSQL = "UPDATE produto SET id = ?, descricao = ?, marca = ?, preco = ?";
-    private String deleteSQL = "DELETE FROM produto WHERE id=?";
+    private String updateSQL = "UPDATE produto SET descricao = ?, marca = ?, preco = ?";
+    private String deleteSQL = "DELETE FROM produto WHERE id = ?";
 
     private final MySQLConnection mysql = new MySQLConnection();
 
@@ -23,12 +23,14 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
         Connection connection = mysql.getConnection();
         try {
             PreparedStatement stm = connection.prepareStatement(createSQL);
-            stm.setLong(1, produto.getId());
-            stm.setString(2, produto.getDescricao());
-            stm.setString(3, produto.getMarca());
-            stm.setDouble(4, produto.getPreco());
-            int registro = stm.executeUpdate();
-            return (registro > 0);
+            stm.setString(1, produto.getDescricao());
+            stm.setString(2, produto.getMarca());
+            stm.setDouble(3, produto.getPreco());
+
+            int registros = stm.executeUpdate();
+
+            return (registros > 0);
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -53,7 +55,7 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
 
             while (rs.next()) {
                 Produto produto = new Produto();
-                produto.setId(rs.getLong("id"));
+                produto.setId(rs.getInt("id"));
                 produto.setDescricao(rs.getString("Descrição"));
                 produto.setMarca(rs.getString("Marca"));
                 produto.setPreco(rs.getDouble("Preço"));
@@ -84,7 +86,7 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
         try {
             PreparedStatement stm = conexao.prepareStatement(updateSQL);
 
-            stm.setLong(1, produto.getId());
+            stm.setInt(1, produto.getId());
             stm.setString(2, produto.getDescricao());
             stm.setString(3, produto.getMarca());
             stm.setDouble(4, produto.getPreco());
@@ -112,11 +114,8 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
         Connection conexao = mysql.getConnection();
         try {
             PreparedStatement stm = conexao.prepareStatement(deleteSQL);
-
-            stm.setLong(1, produto.getId());
-
+            stm.setInt(1, produto.getId());
             int registros = stm.executeUpdate();
-
             return registros > 0 ? true : false;
 
         } catch (final SQLException ex) {
