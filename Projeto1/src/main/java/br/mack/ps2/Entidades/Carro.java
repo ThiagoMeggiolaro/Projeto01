@@ -1,7 +1,7 @@
 package br.mack.ps2.Entidades;
 
 public class Carro {
-    private long id;
+    private int id;
     private String Modelo;
     private String Marca;
     private int Ano;
@@ -15,7 +15,7 @@ public class Carro {
         this.setCategoria(" ");
         this.setAno(0);
     }
-    public Carro(long id, String Modelo, String Marca, int Ano, String Categoria){
+    public Carro(int id, String Modelo, String Marca, int Ano, String Categoria){
         this.setId(id);
         this.setModelo(Modelo);
         this.setMarca(Marca);
@@ -23,9 +23,9 @@ public class Carro {
         this.setCategoria(Categoria);
     }
 
-    public long getId() { return id; }
+    public int getId() { return id; }
 
-    public void setId(long id) { this.id = id; }
+    public void setId(int id) { this.id = id; }
 
     public String getModelo() { return Modelo; }
 
@@ -45,12 +45,12 @@ public class Carro {
 
     @Override
     public java.lang.String toString() {
-        return "Carro{" +
-                "id =" + getId() +
-                ", Modelo ='" + getModelo() + '\'' +
-                ", Marca ='" + getMarca() + '\'' +
-                ", Ano =" + getAno() +
-                ", Categoria ='" + getCategoria() + '\'' +
+        return
+                "\nid = " + getId() +
+                "\nModelo = " + getModelo() + '\'' +
+                "\nMarca = " + getMarca() + '\'' +
+                "\nAno = " + getAno() +
+                "\nCategoria = " + getCategoria() + '\'' +
                 '}';
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class ProdutoDAOMySQL implements ProdutoDAO {
     private String createSQL = "INSERT INTO produto (Descrição, Marca, Preço) VALUES (?,?,?)";
     private String readSQL = "SELECT * FROM produto";
-    private String updateSQL = "UPDATE produto SET descricao = ?, marca = ?, preco = ?";
+    private String updateSQL = "UPDATE produto SET Descrição = ?, Marca = ?, Preço = ? WHERE id=?";
     private String deleteSQL = "DELETE FROM produto WHERE id = ?";
 
     private final MySQLConnection mysql = new MySQLConnection();
@@ -85,11 +85,10 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
         Connection conexao = mysql.getConnection();
         try {
             PreparedStatement stm = conexao.prepareStatement(updateSQL);
-
-            stm.setInt(1, produto.getId());
-            stm.setString(2, produto.getDescricao());
-            stm.setString(3, produto.getMarca());
-            stm.setDouble(4, produto.getPreco());
+            stm.setString(1, produto.getDescricao());
+            stm.setString(2, produto.getMarca());
+            stm.setDouble(3, produto.getPreco());
+            stm.setInt(4, produto.getId());
 
             int registros = stm.executeUpdate();
             return registros > 0 ? true : false;

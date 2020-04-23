@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaísDAOMySQL implements PaísDAO{
-    private String createSQL = "INSERT INTO pais (id, nome, continente, populacao) VALUES (?,?,?,?)";
+    private String createSQL = "INSERT INTO pais (Nome, Continente, População) VALUES (?,?,?)";
     private String readSQL = "SELECT * FROM pais";
-    private String updateSQL = "UPDATE pais SET id = ?, nome = ?, continente = ?, populacao = ?";
+    private String updateSQL = "UPDATE pais SET Nome = ?, Continente = ?, População = ? WHERE id=?";
     private String deleteSQL = "DELETE FROM pais WHERE id=?";
 
     private final MySQLConnection mysql = new MySQLConnection();
@@ -22,10 +22,9 @@ public class PaísDAOMySQL implements PaísDAO{
         Connection connection = mysql.getConnection();
         try {
             PreparedStatement stm = connection.prepareStatement(createSQL);
-            stm.setLong(1, país.getId());
-            stm.setString(2, país.getNome());
-            stm.setString(3, país.getContinente());
-            stm.setInt(4, país.getPopulacao());
+            stm.setString(1, país.getNome());
+            stm.setString(2, país.getContinente());
+            stm.setInt(3, país.getPopulacao());
             int registro = stm.executeUpdate();
             return (registro > 0);
         } catch (SQLException e) {
@@ -52,7 +51,7 @@ public class PaísDAOMySQL implements PaísDAO{
 
             while (rs.next()) {
                 País país = new País();
-                país.setId(rs.getLong("id"));
+                país.setId(rs.getInt("id"));
                 país.setNome(rs.getString("Nome"));
                 país.setContinente(rs.getString("Continente"));
                 país.setPopulacao(rs.getInt("População"));
@@ -82,10 +81,10 @@ public class PaísDAOMySQL implements PaísDAO{
         try {
             PreparedStatement stm = conexao.prepareStatement(updateSQL);
 
-            stm.setLong(1, país.getId());
-            stm.setString(2, país.getNome());
-            stm.setString(3, país.getContinente());
-            stm.setInt(4, país.getPopulacao());
+            stm.setString(1, país.getNome());
+            stm.setString(2, país.getContinente());
+            stm.setInt(3, país.getPopulacao());
+            stm.setInt(4, país.getId());
 
             int registros = stm.executeUpdate();
             return registros > 0 ? true : false;
@@ -112,7 +111,7 @@ public class PaísDAOMySQL implements PaísDAO{
         try {
             PreparedStatement stm = conexao.prepareStatement(deleteSQL);
 
-            stm.setLong(1, país.getId());
+            stm.setInt(1, país.getId());
 
             int registros = stm.executeUpdate();
 

@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarroDAOMySQL implements CarroDAO {
-    private String createSQL = "INSERT INTO carro (id, modelo, marca, ano, categoria) VALUES (?,?,?,?,?)";
+    private String createSQL = "INSERT INTO carro ( Modelo, Marca, Ano, Categoria) VALUES (?,?,?,?)";
     private String readSQL = "SELECT * FROM carro";
-    private String updateSQL = "UPDATE carro SET id = ?, modelo = ?, marca = ?, ano = ?, categoria = ?";
+    private String updateSQL = "UPDATE carro SET Modelo = ?, Marca = ?, Ano = ?, Categoria = ? WHERE id=?";
     private String deleteSQL = "DELETE FROM carro WHERE id=?";
 
     private final MySQLConnection mysql = new MySQLConnection();
@@ -23,11 +23,10 @@ public class CarroDAOMySQL implements CarroDAO {
         Connection connection = mysql.getConnection();
         try {
             PreparedStatement stm = connection.prepareStatement(createSQL);
-            stm.setLong(1, carro.getId());
-            stm.setString(2, carro.getModelo());
-            stm.setString(3, carro.getMarca());
-            stm.setInt(4, carro.getAno());
-            stm.setString(5, carro.getCategoria());
+            stm.setString(1, carro.getModelo());
+            stm.setString(2, carro.getMarca());
+            stm.setInt(3, carro.getAno());
+            stm.setString(4, carro.getCategoria());
             int registro = stm.executeUpdate();
             return (registro > 0);
         } catch (SQLException e) {
@@ -54,7 +53,7 @@ public class CarroDAOMySQL implements CarroDAO {
 
             while (rs.next()) {
                 Carro carro = new Carro();
-                carro.setId(rs.getLong("id"));
+                carro.setId(rs.getInt("id"));
                 carro.setModelo(rs.getString("Modelo"));
                 carro.setMarca(rs.getString("Marca"));
                 carro.setAno(rs.getInt("Ano"));
@@ -86,11 +85,11 @@ public class CarroDAOMySQL implements CarroDAO {
         try {
             PreparedStatement stm = conexao.prepareStatement(updateSQL);
 
-            stm.setLong(1, carro.getId());
-            stm.setString(2, carro.getModelo());
-            stm.setString(3, carro.getMarca());
-            stm.setInt(4, carro.getAno());
-            stm.setString(5, carro.getCategoria());
+            stm.setString(1, carro.getModelo());
+            stm.setString(2, carro.getMarca());
+            stm.setInt(3, carro.getAno());
+            stm.setString(4, carro.getCategoria());
+            stm.setInt(5, carro.getId());
 
             int registros = stm.executeUpdate();
             return registros > 0 ? true : false;
@@ -116,7 +115,7 @@ public class CarroDAOMySQL implements CarroDAO {
         try {
             PreparedStatement stm = conexao.prepareStatement(deleteSQL);
 
-            stm.setLong(1, carro.getId());
+            stm.setInt(1, carro.getId());
 
             int registros = stm.executeUpdate();
 

@@ -8,9 +8,9 @@ import br.mack.ps2.Persistencias.ProdutoDAOMySQL;
 public class App {
     public static void main( String[] args ) {
         ProdutoDAOMySQL mySQLDAO = new ProdutoDAOMySQL();
-        PaísDAOMySQL mySQL = new PaísDAOMySQL();
-        CarroDAOMySQL mySQL1 = new CarroDAOMySQL();
-        InterfaceUsuario interfaceUsuario = new InterfaceUsuario(mySQLDAO);
+        PaísDAOMySQL mySQLDAO2 = new PaísDAOMySQL();
+        CarroDAOMySQL mySQLDAO3 = new CarroDAOMySQL();
+        InterfaceUsuario interfaceUsuario = new InterfaceUsuario(mySQLDAO,mySQLDAO3,mySQLDAO2);
         interfaceUsuario.iniciar();
     }
 }

@@ -1,7 +1,7 @@
 package br.mack.ps2.Entidades;
 
 public class País {
-    private long id;
+    private int id;
     private String nome;
     private String continente;
     private int populacao;
@@ -13,16 +13,16 @@ public class País {
         this.setPopulacao(0);
 
     }
-    public País(long id, String Nome, String Continente, int Populacao){
+    public País(int id, String Nome, String Continente, int Populacao){
         this.setId(id);
         this.setNome(Nome);
         this.setContinente(Continente);
         this.setPopulacao(Populacao);
     }
 
-    public long getId() { return id; }
+    public int getId() { return id; }
 
-    public void setId(long id) { this.id = id; }
+    public void setId(int id) { this.id = id; }
 
     public String getNome() { return nome; }
 
@@ -38,11 +38,10 @@ public class País {
 
     @Override
     public String toString() {
-        return "País{" +
-                "id =" + id +
-                ", nome ='" + nome + '\'' +
-                ", continente ='" + continente + '\'' +
-                ", populacao =" + populacao +
-                '}';
+        return
+                "\nid = " + id +
+                "\nNome = " + nome +
+                "\nContinente = " + continente +
+                "\nPopulação = " + populacao;
     }
 }
