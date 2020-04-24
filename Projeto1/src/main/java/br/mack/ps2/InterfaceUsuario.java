@@ -43,8 +43,8 @@ public class InterfaceUsuario {
             System.out.println("\t|  8. Update na tabela => Carro                |");
             System.out.println("\t|  9. Update na tabela => País                 |");
             System.out.println("\t| 10. Delete na tabela => Produto              |");
-            System.out.println("\t| 11. Delete na tabela => Produto              |");
-            System.out.println("\t| 12. Delete na tabela => Produto              |");
+            System.out.println("\t| 11. Delete na tabela => Carro                |");
+            System.out.println("\t| 12. Delete na tabela => País                 |");
             System.out.println("\t| 13. Sair                                     |");
             System.out.println("\t===============================================");
             System.out.print("\tEscolha uma opção: ");
@@ -126,10 +126,10 @@ public class InterfaceUsuario {
         Carros.setModelo(in.nextLine());
         System.out.println("\nInforme a marca do carro: ");
         Carros.setMarca(in.nextLine());
-        System.out.println("\nInforme o preço do produto: ");
+        System.out.println("\nInforme o ano do carro: ");
         Carros.setAno(in.nextInt());
         System.out.println("\nInforme a categoria do carro: ");
-        Carros.setCategoria(in.nextLine());
+        Carros.setCategoria(in.next());
 
         in.nextLine();
 
@@ -221,7 +221,7 @@ public class InterfaceUsuario {
         System.out.println("Digite o novo ano do carro:  ");
         carro.setAno(in.nextInt());
         System.out.println("Digite a nova categoria do carro: ");
-        carro.setCategoria(in.nextLine());
+        carro.setCategoria(in.next());
         if (dao2.update(carro)) {
             System.out.println("Carro alterado com sucesso!");
         }
