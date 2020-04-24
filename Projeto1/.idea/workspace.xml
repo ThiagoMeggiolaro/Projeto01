@@ -37,8 +37,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-13.0.2" />
+    <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11.0.6" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="br.mack.ps2.App" />
       <module name="Projeto1" />
@@ -57,11 +57,6 @@
       <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-13.0.2" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.App" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -81,10 +76,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="410" y="119" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1360.728@0.0.1360.728" timestamp="1587525361795" />
-    <state x="137" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587584047720">
+    <state x="137" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587745726890">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587584047720" />
+    <state x="137" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587745726890" />
     <state x="452" y="65" key="#com.intellij.ide.util.MemberChooser" timestamp="1587418984887">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -147,9 +142,10 @@
     </state>
     <state x="183" y="0" key="SettingsEditor/0.0.1360.728@0.0.1360.728" timestamp="1587524500848" />
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587583572475" />
-    <state x="376" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1587569221121">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state x="378" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1587744889363">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="376" y="188" key="com.intellij.ide.util.TipDialog/0.0.1360.728@0.0.1360.728" timestamp="1587569221121" />
+    <state x="378" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587744889363" />
   </component>
 </project>
